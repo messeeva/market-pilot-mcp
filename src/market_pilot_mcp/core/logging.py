@@ -1,5 +1,5 @@
-from typing import Literal
 from logging.config import dictConfig
+from typing import Literal
 
 
 def configure_logging(

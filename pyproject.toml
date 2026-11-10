@@ -3,11 +3,14 @@ name = "market-pilot-mcp"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
-authors = [
-    { name = "Evan Messer", email = "messeeva9@gmail.com" }
-]
+authors = [{ name = "Evan Messer", email = "messeeva9@gmail.com" }]
 requires-python = ">=3.15"
 dependencies = [
+    "aiosqlite>=0.22.1",
+    "alpaca-py>=0.45.0",
+    "asyncmy>=0.2.18",
+    "asyncpg>=0.32.0",
+    "greenlet>=3.5.6",
     "mcp[cli]>=2.3.0",
     "pydantic>=2.14.3",
     "pydantic-settings>=2.16.2",
@@ -16,8 +19,16 @@ dependencies = [
 ]
 
 [project.scripts]
-market-pilot-mcp = "market_pilot_mcp:main"
+market-pilot-mcp = "market_pilot_mcp.__main__:main"
 
 [build-system]
 requires = ["uv_build>=0.13.7,<0.14.0"]
 build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pyright>=1.1.414",
+    "pytest>=9.2.0",
+    "pytest-asyncio>=1.4.1.post1",
+    "ruff>=0.17.4",
+]

@@ -1,6 +1,7 @@
 from typing import Annotated, Literal
+
+from pydantic import BeforeValidator, Field, MySQLDsn, PostgresDsn
 from pydantic_settings import BaseSettings, SettingsConfigDict
-from pydantic import PostgresDsn, MySQLDsn, Field, BeforeValidator, computed_field
 
 
 class Settings(BaseSettings):
@@ -19,6 +20,9 @@ class Settings(BaseSettings):
 
     DATABASE_ENGINE: Literal["postgres", "sqlite"] = Field(default="postgres")
     DATABASE_URL: Annotated[PostgresDsn | MySQLDsn, BeforeValidator(lambda x: str(x))]
+
+    ALPACA_KEY: str | None = None
+    ALPACA_SECRET: str | None = None
 
 
 settings = Settings()
