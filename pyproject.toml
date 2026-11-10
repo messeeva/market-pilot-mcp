@@ -1,7 +1,7 @@
 [project]
 name = "market-pilot-mcp"
-version = "0.1.0"
-description = "Add your description here"
+version = "0.1.1"
+description = "Market Pilot MCP is a Model Context Protocol (MCP) server for maintaining a structured journal of trading research and activity. It gives models a way to record and reference observations, proposals, reviews, decisions, and orders.\nThe journal preserves the evidence, reasoning, and outcomes behind trading activity, providing context that can be revisited as new information becomes available."
 readme = "README.md"
 authors = [{ name = "Evan Messer", email = "messeeva9@gmail.com" }]
 requires-python = ">=3.15"
@@ -20,6 +20,7 @@ dependencies = [
 
 [project.scripts]
 market-pilot-mcp = "market_pilot_mcp.__main__:main"
+dev = "market_pilot_mcp.dev:main"
 
 [build-system]
 requires = ["uv_build>=0.13.7,<0.14.0"]
